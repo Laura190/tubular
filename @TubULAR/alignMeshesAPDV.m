@@ -165,6 +165,7 @@ end
 if isfield(opts, 'transname')
     transname = opts.transname ;
 end
+transname=char(transname);
 if ~strcmp(transname(end-3:end), '.txt') 
     transname = [transname '.txt'] ;
 end
@@ -177,6 +178,7 @@ end
 if isfield(opts, 'dptname')
     dptname = opts.dptname ;
 end
+dptname=char(dptname);
 if ~strcmp(dptname(end-3:end), '.txt') 
     dptname = [dptname '.txt'] ;
 end
