@@ -228,14 +228,14 @@ for tt = timePoints
     assert(exist(meshfn, 'file') > 0)
     
     %% Name the output centerline
-    outname = [fullfile(outdir, name) '_centerline' extenstr] ;
-    skel_rs_outfn = [fullfile(outdir, name) '_centerline_scaled' extenstr ] ;
-    fig1outname = [fullfile(fig1outdir, name) '_centerline' extenstr '_xy.png'] ;
-    fig2outname = [fullfile(fig2outdir, name) '_centerline' extenstr '_xz.png'] ;
-    fig3outname = [fullfile(fig3outdir, name) '_centerline' extenstr '_yz.png'] ;
-    fig1anyres_fn = [fullfile(fig1outdir, name) '_centerline' '_exp' expstr '*_xy.png'] ;
-    fig2anyres_fn = [fullfile(fig2outdir, name) '_centerline' '_exp' expstr '*_xz.png'] ;
-    fig3anyres_fn = [fullfile(fig3outdir, name) '_centerline' '_exp' expstr '*_yz.png'] ;
+    outname = [char(fullfile(outdir, name)) '_centerline' extenstr] ;
+    skel_rs_outfn = [char(fullfile(outdir, name)) '_centerline_scaled' extenstr ] ;
+    fig1outname = [char(fullfile(fig1outdir, name)) '_centerline' extenstr '_xy.png'] ;
+    fig2outname = [char(fullfile(fig2outdir, name)) '_centerline' extenstr '_xz.png'] ;
+    fig3outname = [char(fullfile(fig3outdir, name)) '_centerline' extenstr '_yz.png'] ;
+    fig1anyres_fn = [char(fullfile(fig1outdir, name)) '_centerline' '_exp' expstr '*_xy.png'] ;
+    fig2anyres_fn = [char(fullfile(fig2outdir, name)) '_centerline' '_exp' expstr '*_xz.png'] ;
+    fig3anyres_fn = [char(fullfile(fig3outdir, name)) '_centerline' '_exp' expstr '*_yz.png'] ;
     
     % Check if any centerline exists at a different scale
     other_exist = ~isempty(dir([char(fullfile(outdir, name)) '_centerline*'])) ;
