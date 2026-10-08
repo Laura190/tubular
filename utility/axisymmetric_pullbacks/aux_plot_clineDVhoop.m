@@ -37,6 +37,8 @@ zlim(xyzlim(3, :))
 xlabel('x [\mum]')
 ylabel('y [\mum]')
 zlabel('z [\mum]')
+clineDVhoopFigBase = strrep( ...
+    char(clineDVhoopFigBase), '\', '/');
 fn = sprintf(clineDVhoopFigBase, t) ;
 disp(['Saving image of new centerline to ' fn]) 
 saveas(fig, fn);

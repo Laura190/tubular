@@ -279,18 +279,31 @@ fprintf('Checking whether to create pullback \n');
 %--------------------------------------------------------------
 % Generate Output Image Files
 %--------------------------------------------------------------
-imfn_uv = sprintfm( tubi.fullFileBase.im_uv, tt); 
-imfn_r = sprintfm( tubi.fullFileBase.im_r, tt) ;
-imfn_sp = sprintfm( tubi.fullFileBase.im_sp, tt) ;
-imfn_up = sprintfm( tubi.fullFileBase.im_up, tt) ;
+im_uv = strrep(char(tubi.fullFileBase.im_uv), '\', '/');
+im_r = strrep(char(tubi.fullFileBase.im_r), '\', '/');
+im_sp = strrep(char(tubi.fullFileBase.im_sp), '\', '/');
+im_up = strrep(char(tubi.fullFileBase.im_up), '\', '/');
+im_ricci = strrep(char(tubi.fullFileBase.im_ricci), '\', '/');
+
+imfn_uv = sprintfm(im_uv, tt);
+imfn_r = sprintfm(im_r, tt);
+imfn_sp = sprintfm(im_sp, tt);
+imfn_up = sprintfm(im_up, tt);
+
 if tubi.dynamic
-    imfn_spsm = sprintfm( tubi.fullFileBase.im_sp_sm, tt) ;
-    imfn_rsm = sprintfm( tubi.fullFileBase.im_r_sm, tt) ;
-    imfn_pivPline = sprintfm( tubi.fullFileBase.im_pivPathlines, t0Pathlines, tt) ;
+    im_sp_sm = strrep(char(tubi.fullFileBase.im_sp_sm), '\', '/');
+    im_r_sm = strrep(char(tubi.fullFileBase.im_r_sm), '\', '/');
+    im_pivPathlines = strrep( ...
+        char(tubi.fullFileBase.im_pivPathlines), '\', '/');
+
+    imfn_spsm = sprintfm(im_sp_sm, tt);
+    imfn_rsm = sprintfm(im_r_sm, tt);
+    imfn_pivPline = sprintfm(im_pivPathlines, t0Pathlines, tt);
 else
-    imfn_pivPline = '' ;
+    imfn_pivPline = '';
 end
-imfn_ricci = sprintfm( tubi.fullFileBase.im_ricci, tt) ;
+
+imfn_ricci = sprintfm(im_ricci, tt);
 do_pb1 = ~exist(imfn_uv, 'file') && generate_uv ;
 do_pb2 = ~exist(imfn_r, 'file') && generate_relaxed ;
 do_pb3 = ~exist(imfn_sp, 'file') && generate_sphi ;

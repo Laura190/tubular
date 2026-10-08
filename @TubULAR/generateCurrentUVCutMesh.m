@@ -100,7 +100,7 @@ if ~exist(uvcutMeshfn, 'file') || overwrite
     
     % NOTE: first dimension indexes u, second indexes v
     for kk = 1:nU
-        if mod(kk,reo 20) == 0
+        if mod(kk,20) == 0
             disp(['u = ' num2str(kk / nU)])
         end
         uv_tmp = [uspace(kk) * ones(size(vspace)), vspace] ;
