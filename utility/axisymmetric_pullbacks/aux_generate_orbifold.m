@@ -1,5 +1,4 @@
 function aux_generate_orbifold(cutMesh, a, IV, imfn, Options, axisorder, save_as_stack)
-function aux_generate_orbifold(cutMesh, a, IV, imfn, Options, axisorder, save_as_stack)
 %AUX_GENERATE_ORBIFOLD(cutMesh, a, IV, imfn)
 % called by tubi.generateCurrentPullbacks()
 %
@@ -254,6 +253,10 @@ fprintf('Done\n');
 
 % Write figure to file
 disp(['Writing ' imfn]) 
+[parentDir, baseName, ext] = fileparts(imfn);
+if ~isfolder(parentDir)
+    mkdir(parentDir);
+end
 if length(size(patchIm)) < 3
     % Image is 2d, save using imwrite
     imwrite( patchIm, imfn, 'TIFF' ) ;
