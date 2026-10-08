@@ -269,7 +269,8 @@ for tt = timePoints
         tic 
         if reorient_faces
             disp('Reorienting mesh faces... ') ;
-            fv.faces = reorient_facets( fv.vertices, fv.faces );
+            %fv.faces = reorient_facets( fv.vertices, fv.faces );
+            fv.faces = fv.faces;
         end
         
         % check it
