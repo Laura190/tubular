@@ -821,6 +821,10 @@ if makeDirs
                 end
             end
         else
+            %Added this due to errors due to 1x2 string arrays
+            if isstring(dir2make) && numel(dir2make) == 2
+                dir2make = char(join(dir2make, ''));
+            end
             if ~exist(dir2make, 'dir')
                 try
                     mkdir(dir2make)
