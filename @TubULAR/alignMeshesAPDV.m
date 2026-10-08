@@ -156,6 +156,7 @@ alignedMeshYZFigBaseName = [tubi.fileBase.alignedMesh '_yz.png'] ;
 if isfield(opts, 'rotname')
     rotname = opts.rotname ;
 end
+rotname=char(rotname);
 if ~strcmp(rotname(end-3:end), '.txt') 
     rotname = [rotname '.txt'] ;
 end
