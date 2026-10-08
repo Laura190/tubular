@@ -45,7 +45,9 @@ tt = tubi.currentTime ;
 nU = tubi.nU ;
 nV = tubi.nV ;
 phi_method = tubi.phiMethod ;
-uvcutMeshfn = sprintf(tubi.fullFileBase.uvcutMesh, tt) ;
+tubi.fullFileBase.uvcutMesh = strrep( ...
+    char(tubi.fullFileBase.uvcutMesh), '\', '/');
+uvcutMeshfn = sprintf(tubi.fullFileBase.uvcutMesh, tt);
 [rot, trans] = getRotTrans(tubi) ;
 resolution = tubi.APDV.resolution ;
 preview = tubi.plotting.preview ;
@@ -98,7 +100,7 @@ if ~exist(uvcutMeshfn, 'file') || overwrite
     
     % NOTE: first dimension indexes u, second indexes v
     for kk = 1:nU
-        if mod(kk, 20) == 0
+        if mod(kk,reo 20) == 0
             disp(['u = ' num2str(kk / nU)])
         end
         uv_tmp = [uspace(kk) * ones(size(vspace)), vspace] ;

@@ -400,7 +400,9 @@ else
         [rawRicciMesh, ~] = ...
             tubi.generateRawRicciMeshTimePoint(tt, ricciOptions) ;
     end
-    cutMesh = ...(rawRiciMesh.rectangle....) ;
+    cutMesh = ...
+        (rawRiciMesh.rectangle....
+        ) ;
 end
 
 if preview
