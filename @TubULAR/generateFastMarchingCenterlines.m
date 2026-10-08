@@ -238,7 +238,7 @@ for tt = timePoints
     fig3anyres_fn = [fullfile(fig3outdir, name) '_centerline' '_exp' expstr '*_yz.png'] ;
     
     % Check if any centerline exists at a different scale
-    other_exist = ~isempty(dir([fullfile(outdir, name) '_centerline*'])) ;
+    other_exist = ~isempty(dir([char(fullfile(outdir, name)0 '_centerline*'])) ;
     
     %% Compute centerline if has not been saved 
     if overwrite || (~exist(outname, 'file') && ~other_exist)
